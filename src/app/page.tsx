@@ -1,10 +1,14 @@
-// import Image from "next/image";
+import Navbar from "@/components/Navbar";
 import Welcome from "@/components/Welcome";
 
 export default function Home() {
+
   return (
 
-    <div className="">
+    <div className=" ">
+
+      <Navbar />
+
       <Welcome/>
     </div>
     
