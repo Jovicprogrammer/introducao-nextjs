@@ -1,8 +1,21 @@
+import Navbar from "@/components/Navbar";
+
 export default function Products() {
 
     return (
+        
 
         <div>
+
+            <div>
+                <Navbar links={
+                [
+                {label:'Sobre', href:'about/'},
+                {label:'Produtos', href:'products/'},
+                {label:'Cliente', href:'server-client/'}
+                ]
+            }/>
+            </div>
 
         <h1>Nossos produtos</h1>
         
