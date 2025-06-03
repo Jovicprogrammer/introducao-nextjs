@@ -8,7 +8,10 @@ export default function About() {
 
         <div>
 
-            <Navbar/>
+            <Navbar links={[
+                {label:'Produtos', href:'products/'},
+                {label:'Exemplo', href: 'server-example/'}
+            ]}/>
 
         <div className="mt-4">
             <h1>Sobre a gente</h1>

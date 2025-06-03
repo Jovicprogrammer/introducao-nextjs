@@ -8,12 +8,13 @@ export default function Products() {
         <div>
 
             <div>
-                <Navbar link1_titulo="Sobre"
-                link1_link="about/"
-                link2_titulo="Produtos"
-                link2_link="products/"
-                link3_titulo="Descubra mais"
-                link3_link="server-example/"/>
+                <Navbar links={
+                [
+                {label:'Sobre', href:'about/'},
+                {label:'Produtos', href:'products/'},
+                {label:'Cliente', href:'server-client/'}
+                ]
+            }/>
             </div>
 
         <h1>Nossos produtos</h1>

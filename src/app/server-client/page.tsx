@@ -1,4 +1,5 @@
 import ThemeToggle from "@/components/ThemeToggle"
+import Navbar from "@/components/Navbar"
 
 export default function ServerClient() {
 
@@ -10,10 +11,20 @@ export default function ServerClient() {
 
         <div>
 
-        <p>Hoje é dia {date}</p>
-        <p>Exatamente {hours} horas</p>
+        <Navbar links={[
+                        {label:'Sobre', href:'about/'},
+                        {label:'Cliente', href: 'server-client/'},
+                        {label:'Produtos', href:'products/'},
+                        {label:'Casa', href: '/'}
         
-        <ThemeToggle/>
+                    ]}/>
+
+        <div>
+            <p>Hoje é dia {date}</p>
+            <p>Exatamente {hours} horas</p>
+            
+            <ThemeToggle/>
+        </div>
 
         </div>
 
