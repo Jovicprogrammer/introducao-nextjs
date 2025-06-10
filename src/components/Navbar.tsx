@@ -1,5 +1,7 @@
 
 import Image from "next/image"
+import Link from "next/link";
+import React from "react";
 
 interface NavBarProps {
   links: {
@@ -19,16 +21,20 @@ export default function Navbar({links}: NavBarProps) {
           <div className="flex justify-between h-14 items-center ">
 
         {/* Logo */}
+        <Link href='/'>
         <div className="flex items-center"> 
-        <Image
-        src="/nextjslogo.png"
-        alt="nextjs logo "
-        height={70}
-        width={70}
-        className=" "
-        />
+        
+          <Image
+          src="/nextjslogo.png"
+          alt="nextjs logo "
+          height={70}
+          width={70}
+          className=" "
+          />
+        
         <span className="ml-2">NextJs</span>
         </div>
+        </Link>
 
         {/* Links */}
         <div className="flex space-x-4">
