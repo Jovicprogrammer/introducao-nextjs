@@ -8,6 +8,10 @@ images: {
         protocol: 'https',
         hostname: 'images.dog.ceo',
       },
+      {
+        protocol: 'https',
+        hostname: 'ponyapi.net',
+      }
     ],
   },
 };
