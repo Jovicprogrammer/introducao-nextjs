@@ -2,6 +2,7 @@ import React from "react";
 import Navbar from "@/components/Navbar";
 import Welcome from "@/components/Welcome";
 import CardCreator from "@/components/CardCreator";
+import PlaceForm from "@/components/PlaceForm";
 
 export default function Home() {
 
@@ -33,6 +34,10 @@ export default function Home() {
         <CardCreator icon='https://www.svgrepo.com/show/11060/television.svg' title='Japoneses descobrem dia do fim do mundo' subtitle='A Terra será inabitável daqui a bilhões de anos.'
         />
 
+      </div>
+
+      <div className="flex justify-center"> 
+        <PlaceForm />
       </div>
 
     </div>
