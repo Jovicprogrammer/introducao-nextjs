@@ -1,8 +1,9 @@
 'use client';
-import React, { useState } from 'react';
-import { MapContainer, TileLayer, Marker, Popup, useMapEvent, useMap } from 'react-leaflet';
+
+import { MapContainer, TileLayer, Marker, Popup, useMapEvent, useMap} from 'react-leaflet';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
+import { useState } from 'react';
 import PlaceForm from './PlaceForm';
 
 type PointsType = 'restaurant' | 'bar' | 'hotel';
@@ -66,50 +67,47 @@ const points: Point[] = [
 ];
 
 function ShowLatLongOnClick() {
-
   const map = useMap()
-  
-  useMapEvent('click', (event)=>{
-    const lat = event.latlng.lat
-    const long = event.latlng.lng
 
-    L.popup()
-    .setLatLng([lat, long])
-    .setContent(
-      `Você clicou em: Lat: ${lat.toFixed(2)} e Long: ${lat.toFixed(2)}`
-    )
-    .openOn(map)
+  useMapEvent('click',(event) => {
+      const lat = event.latlng.lat
+      const long = event.latlng.lng
+
+      //Criar e exibir um Popup na posição do click
+      L.popup()
+      .setLatLng([lat, long])
+      .setContent(
+        `Você clicou em: Lat: ${lat.toFixed(2)} e Long: ${long.toFixed(2)}`
+      )
+      .openOn(map)
   })
-
   return null
 }
 
 type Props = {
-    setFormPosition: (position: [number, number]) => void
+  setFormPosition: (position: [number,number]) => void
 }
 
 function ShowPlaceFormOnClick({setFormPosition}: Props) {
   useMapEvent("click", (e)=>{
 
     const position: [number, number] = [e.latlng.lat, e.latlng.lng]
-    setFormPosition(position)
+     setFormPosition(position)
   })
-  
+
   return null;
 }
 
-
-
 export default function Map() {
-  
 
-    const [formPosition, setFormPosition] = useState<[number, number] | null>(null)
+  const [formPosition, setFormPosition] = useState<[number,number] | null>(
+    null
+  )
 
-    return (
+  return (
     <MapContainer
       center={[-3.029350, -39.653422]}
       zoom={13}
-      minZoom={13}
       scrollWheelZoom={true}
       className="w-full h-[600px] rounded-lg shadow-lg"
     >
@@ -137,10 +135,10 @@ export default function Map() {
           </Popup>
         </Marker>
       ))}
-    
-    {/* <ShowLatLongOnClick/> */}
 
-       <ShowPlaceFormOnClick setFormPosition={setFormPosition}/>
+      {/* <ShowLatLongOnClick/> */}
+
+      <ShowPlaceFormOnClick setFormPosition={setFormPosition}/>
 
       {formPosition && (
         <Marker
@@ -161,7 +159,6 @@ export default function Map() {
         </Marker>
       )}
 
-      </MapContainer>
-    
+    </MapContainer>
   );
 }

@@ -1,16 +1,15 @@
-'use client'
+"use client";
 
 import { useForm } from "react-hook-form"
-import {z} from "zod"
+import { z } from "zod"
 import { zodResolver } from "@hookform/resolvers/zod"
 
 const placeValidationSchema = z.object({
-    name: z.string().min(3, 'Nome curto demais!!'),
-    type: z.enum(["restaurante", 'bar', 'hotel', 'academia', 'petiscaria']),
-    phone: z.string().min(8, 'Esse telefone não dá!!'),
+    name: z.string().min(3, "Nome muito curto!"),
+    type: z.enum(["restaurante", "bar", "hotel"]),
+    phone: z.string().min(8, "Telefone inválido"),
     lat: z.number(),
     lng: z.number()
-
 })
 
 type PlaceFormData = z.infer<typeof placeValidationSchema>
@@ -32,64 +31,81 @@ export default function PlaceForm({lat, lng}: Props) {
             lat,
             lng
         }
-
     })
 
     const onSubmit = (data: PlaceFormData) => {
-        alert("Dados do local enviados!!")
+        alert("Dados do local enviados!")
     }
 
     return (
-
-        <form className="space-y-4" action="" onSubmit={handleSubmit(onSubmit)}>
-
-            {/* nome */}
-
+        <form className="space-y-4" onSubmit={handleSubmit(onSubmit)}>
+            {/* Nome */}
             <div>
-                <label htmlFor="">Nome:</label>
-                <input {...register('name')} type="text" className="w-full border rounded px-2 py-1" name="" id="" />{errors.name && <p className="text-red-700">{errors.name.message}</p>}
+                <label>Nome:</label>
+                <input
+                    {...register("name")}
+                    className="w-full border rounded px-2 py-1"
+                />
+                {errors.name && <p className="text-red-500">
+                    {errors.name.message}
+                </p>}
             </div>
 
-            {/* telefone */}
-
-            <div>
-                <label htmlFor="">Telefone:</label>
-                <input {...register('phone')} type="text" className="w-full border rounded px-2 py-1" name="" id="" />{errors.phone && <p className="text-red-700">{errors.phone.message}</p>}
-            </div>
-
-            {/* tipo */}
-
-            <select {...register("type")} name="" id="">
-                <option value="">Selecione...</option>
-                <option value="restaurante">restaurante</option>
-                <option value="bar">bar</option>               
-                <option value="hotel">hotel</option>
-                <option value="academia">academia</option>
-                <option value="petiscaria">pestiscaria</option>
+            {/* Tipo */}
+            <select
+                {...register("type")}
+            >
+                <option>Selecione</option>
+                <option value="restaurante">Restaurante</option>
+                <option value="bar">Bar</option>
+                <option value="hotel">Hotel</option>
             </select>
-            {errors.type && <p className="text-red-700">{errors.type.message}</p>}
+            {errors.type && <p className="text-red-500">
+                {errors.type.message}
+            </p>}
 
-            {/* latitude */}
-
+            
+            {/* Telefone*/}
             <div>
-                <label htmlFor="">latitude: </label>
-                <input value={lat} readOnly className="bg-gray-200" type="text" name="" id="" />
+                <label>Telefone:</label>
+                <input
+                    {...register("phone")}
+                    className="w-full border rounded px-2 py-1"
+                />
+                {errors.phone && <p className="text-red-500">
+                    {errors.phone.message}
+                </p>}
+            </div>
+            
+            {/* Latitude */}
+            <div>
+                <label>Latitude: </label>
+                <input
+                    value={lat}
+                    readOnly
+                    className="border rounded px-2 py-1 bg-gray-100"
+                />
+            </div>
+            
+            {/* Longitude */}
+            <div>
+                <label>Longitude: </label>
+                <input
+                    value={lng}
+                    readOnly
+                    className="border rounded px-2 py-1 bg-gray-100"
+                />
             </div>
 
-            {/* longitude */}
-
-            <div>
-                <label htmlFor="">latitude: </label>
-                <input value={lng} readOnly className="bg-gray-200" type="text" name="" id="" />
-            </div>
-                
-
-            <button className="bg-indigo-700 text-white px-4 py-1 rounded hover:bg-indigo-500 transition cursor-pointer">
+            
+            
+            <button
+                className="bg-blue-600 text-white 
+                px-4 py-1 rounded hover:bg-blue-700
+                cursor-pointer">
                 Registrar Local
             </button>
 
         </form>
-
     )
-
 }
