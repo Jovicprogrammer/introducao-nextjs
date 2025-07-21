@@ -64,15 +64,16 @@ export default function PlaceForm({lat, lng}: Props) {
             // Faço a requisição
             setLoading(true)
             const response = await axios.post(
-                "http://localhost:3001/places",
+                `${process.env.NEXT_PUBLIC_API_URL}/places`,
                 formData, 
                 {
                     headers: {"Content-Type": "multipart/form-data"}
                 })
+            console.log(`Resposta da API ${response.status} | ${response.data}`)
             reset();
             setImages(null);
         } catch(error) {
-            setSubmitError("Erro ao enviar o formulário!")
+            setSubmitError(`Erro ao enviar o formulário!: ${error}`)
         } finally {
             setLoading(false)
         }
@@ -90,7 +91,7 @@ export default function PlaceForm({lat, lng}: Props) {
     }, [lat, lng, reset])
 
     const [images, setImages ] = useState<FileList | null>(null)
-    const [submitError, setSubmitError] = useState<String | null>(null)
+    const [submitError, setSubmitError] = useState<string | null>(null)
     const [loading, setLoading] = useState(false)
 
     return (

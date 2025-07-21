@@ -2,7 +2,7 @@ import React from "react";
 import Navbar from "@/components/Navbar";
 import Welcome from "@/components/Welcome";
 import CardCreator from "@/components/CardCreator";
-import PlaceForm from "@/components/PlaceForm";
+
 
 export default function Home() {
 
