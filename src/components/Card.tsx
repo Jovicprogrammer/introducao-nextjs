@@ -9,7 +9,7 @@ export default function Card({title, description, imageUrl}: CardProps) {
 
     return (
 
-        <div className="bg-blue-950 max-w-sm flex items-center flex-col m-2 rounded-2xl py-5 px-5 space-y-3 border-4 border-amber-200 ">
+        <div className="bg-blue-950 max-w-sm flex items-center flex-col m-2 rounded-2xl py-5 px-4 space-y-3 border-4 border-amber-200 ">
             
             <h2 className="text-amber-200 ">{title}</h2>
 
