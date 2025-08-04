@@ -13,7 +13,7 @@ export default function Card({title, description, imageUrl}: CardProps) {
             
             <h2 className="text-amber-200 ">{title}</h2>
 
-            <Image className="border-3 border-amber-200 rounded hover:opacity-70 transition"
+            <Image className="border-3 border-amber-200 rounded hover:opacity-75 transition"
             src={imageUrl}
             width={200}
             height={200}
