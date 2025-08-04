@@ -16,7 +16,7 @@ export default function Navbar({links}: NavBarProps) {
 
     return (
 
-      <nav className="bg-indigo-500 shadow-sm ">
+      <nav className="bg-blue-950 shadow-sm text-white">
         <div className="px-4 py-3">
           <div className="flex justify-between h-14 items-center ">
 
