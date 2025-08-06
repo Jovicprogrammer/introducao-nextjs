@@ -1,8 +1,12 @@
+
 import React from "react"
 import Navbar from "@/components/Navbar"
 
 import Button from "@/components/Button"
 import Card from "@/components/Card"
+import { CommentForm } from "@/components/CommentForm"
+import Counter from "@/components/Counter"
+
 
 export default function About() {
 
@@ -41,7 +45,7 @@ export default function About() {
 
     return (
 
-        <div>
+        <div className="bg-blue-100 ">
 
             <Navbar links={[
                 {label:'Produtos', href:'products/'},
@@ -49,11 +53,8 @@ export default function About() {
             ]}/>
 
         <div className="mt-4">
-            <h1>Sobre a gente</h1>
-            <p>
-                nossa história começa lá em 2020, auge da infame pandemia que alastrou o mundo inteiro... que jeito de dar o pontapé inicial! Mas você sabe o que dizem: camarão que dorme a corrente leva, então estudamos a melhor forma de começar a ativa de forma sensível e efetiva.
-            </p>
-            <div>
+
+            <div className="text-center">
                 <Button label="THUNDRRR"/>
                 <Button label="GODSTAINED"></Button>
                 <Button label="MONDAY"></Button>
@@ -65,7 +66,13 @@ export default function About() {
                 <Button label="NATURAL CAUSES"></Button>
                 <Button label="CASPER"></Button>
             </div>
+
+            <div>
+                <Counter initial={0} />
+            </div>
+
 <div className="flex flex-wrap justify-center ">
+
     
          {items.map((item) => (
             <Card key={item.title} title={item.title} description={item.description} imageUrl={item.imageUrl} category={item.category}></Card>
@@ -73,8 +80,9 @@ export default function About() {
 
 </div>
 
-            
-           
+        <div>
+          <CommentForm />
+        </div>
             
 
         </div>
