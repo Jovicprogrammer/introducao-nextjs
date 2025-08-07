@@ -1,4 +1,5 @@
 import ClientCounter from "@/components/ClientCounter"
+import LikeButton from "@/components/LikeButton"
 import Navbar from "@/components/Navbar"
 export default function ServerExample() {
 
@@ -19,10 +20,15 @@ export default function ServerExample() {
             
             
             />
-
+{/* 
             <h1>Dados do Servidor</h1>
             <p>{data}</p>
-            <ClientCounter />
+            <ClientCounter /> */}
+
+            <div>
+                <LikeButton initial={0}/>
+            </div>
+
         </div>
 
     )
