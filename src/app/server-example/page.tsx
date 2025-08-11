@@ -1,4 +1,5 @@
 import ClientCounter from "@/components/ClientCounter"
+import EffectCounter from "@/components/EffectCounter"
 import LikeButton from "@/components/LikeButton"
 import Navbar from "@/components/Navbar"
 export default function ServerExample() {
@@ -8,7 +9,7 @@ export default function ServerExample() {
 
     return (
 
-        <div>
+        <div className="bg-blue-100 ">
 
             <Navbar links={[
                 {label:'Sobre', href:'about/'},
@@ -27,6 +28,10 @@ export default function ServerExample() {
 
             <div>
                 <LikeButton initial={0}/>
+            </div>
+
+            <div>
+                <EffectCounter />
             </div>
 
         </div>

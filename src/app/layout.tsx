@@ -19,6 +19,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Vanisher",
   description: "the horizon SCRAPER",
+  icons: {
+  icon: 'vanisher-logo.png'
+  },
 };
 
 export default function RootLayout({
