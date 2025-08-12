@@ -34,6 +34,7 @@ export default function ServerExample() {
                 <EffectCounter />
             </div>
 
+
         </div>
 
     )
