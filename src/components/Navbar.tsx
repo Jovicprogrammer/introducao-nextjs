@@ -25,14 +25,14 @@ export default function Navbar({links}: NavBarProps) {
         <div className="flex items-center"> 
         
           <Image
-          src="/nextjslogo.png"
-          alt="nextjs logo "
+          src="/piano-logo.png"
+          alt="vanisher logo "
           height={70}
           width={70}
           className=" "
           />
         
-        <span className="ml-2">NextJs</span>
+        <span className="ml-2">Vanisher</span>
         </div>
         </Link>
 
