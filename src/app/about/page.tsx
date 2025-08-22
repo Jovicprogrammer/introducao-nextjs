@@ -4,7 +4,7 @@ import Navbar from "@/components/Navbar"
 
 import Button from "@/components/Button"
 import Card from "@/components/Card"
-import { CommentForm } from "@/components/CommentForm"
+import CommentSection from "@/components/CommentForm"
 import Counter from "@/components/Counter"
 
 
@@ -81,7 +81,7 @@ export default function About() {
 </div>
 
         <div>
-          <CommentForm />
+<CommentSection />         
         </div>
             
 
