@@ -16,10 +16,7 @@ export default function BotaoReproducao() {
         <Image onClick={() => {setCount(!count)}} className="cursor-pointer transition hover:not-focus:opacity-50
         
         
-        " src={count ? '/pause.png' : '/play.png'} width={300} height={300} alt="image
-        
-        
-        ">
+        " src={count ? '/pause.png' : '/play.png'} width={300} height={300} alt="image">
         
         </Image>
 

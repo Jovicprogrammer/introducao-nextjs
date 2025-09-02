@@ -1,4 +1,5 @@
 import BotaoReproducao from "@/components/BotaoReproducao";
+import ListaDeCompras from "@/components/ListadeCompras";
 import Navbar from "@/components/Navbar";
 
 export default function Products() {
@@ -20,6 +21,10 @@ export default function Products() {
 
         <div>
             <BotaoReproducao />
+        </div>
+
+        <div>
+            <ListaDeCompras />
         </div>
 
         </div>

@@ -41,7 +41,7 @@ export default function About() {
             category: 'Lugar'},
 
 
-      ];
+    ];
 
     return (
 
@@ -74,9 +74,9 @@ export default function About() {
 <div className="flex flex-wrap justify-center ">
 
     
-         {items.map((item) => (
+        {items.map((item) => (
             <Card key={item.title} title={item.title} description={item.description} imageUrl={item.imageUrl} category={item.category}></Card>
-          ))}
+        ))}
 
 </div>
 
