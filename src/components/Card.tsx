@@ -28,6 +28,8 @@ export default function Card({title, description, imageUrl, category}: CardProps
             />
             
             <p className="text-white text-center">{description}</p>
+
+            
             
         </div>
 

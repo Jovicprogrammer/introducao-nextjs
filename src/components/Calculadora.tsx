@@ -1,9 +1,29 @@
 'use client'
 import { useState } from "react"
+import { set } from "zod/v4-mini"
 
-export default function MiniDisplay() {
+export default function Calculadora() {
 
     const [display, setDisplay] = useState('')
+
+    const handleOperatorClick = (operator: string) => {
+
+        const operators = ['+', '-', 'x', '÷']
+        
+        const disabledOperators = operators.filter((op) => op !== operator)
+
+        const hasAnotherOperator = disabledOperators.some(
+            (op) => display.includes(op))
+
+        if (hasAnotherOperator) return
+        
+        setDisplay(display + operator)
+    
+    }
+
+        
+
+
 
     function MoreMais() {
 
@@ -56,15 +76,28 @@ export default function MiniDisplay() {
     }
 
     function divDisplay() {
-         const values = display.split('÷')
+        const values = display.split('÷')
+
         
         const numberValues = values.map((value) => Number(value))
+
+         if (numberValues[0] === 0) {
+            setDisplay('0')
+         }
+
+        if (numberValues.includes(0)) {
+            setDisplay('Não é possível dividir por 0')
+            return 
+        } 
+
 
         const result = numberValues.reduce(
             (acumuladora, valorAtual) => acumuladora / valorAtual)
 
+
         setDisplay(String(result))
     }
+
 
     function Calculate() {
         if(display.includes('+'))
@@ -75,7 +108,7 @@ export default function MiniDisplay() {
         if(display.includes('-'))
         {
             minDisplay()
-        }
+        }   
         
         if(display.includes('x'))
         {
@@ -105,33 +138,36 @@ export default function MiniDisplay() {
                 <button onClick={() => {setDisplay(display + '2')}} className="bg-blue-500 p-2 active:bg-blue-900 rounded transition cursor-pointer hover:bg-blue-400">2</button>
                 <button onClick={() => {setDisplay(display + '3')}} className="bg-blue-500 p-2 active:bg-blue-900 rounded transition cursor-pointer hover:bg-blue-400">3</button>
 
-                
+                {/* apagar */}
                 <button onClick={() => {(setDisplay(''))}} className="bg-amber-200 p-2 rounded active:bg-amber-500 transition cursor-pointer hover:bg-amber-100 ">C</button>
 
                 <button onClick={() => {setDisplay(display + '4')}} className="bg-blue-500 p-2 active:bg-blue-900 rounded transition cursor-pointer hover:bg-blue-400">4</button>
                 <button onClick={() => {setDisplay(display + '5')}} className="bg-blue-500 p-2 active:bg-blue-900 rounded transition cursor-pointer hover:bg-blue-400">5</button>
                 <button onClick={() => {setDisplay(display + '6')}} className="bg-blue-500 p-2 active:bg-blue-900 rounded transition cursor-pointer hover:bg-blue-400">6</button>
 
-                
+                {/* backspace */}
                 <button onClick={() => {(setDisplay(display.slice(0, -1)))}} className="bg-amber-200 p-2 rounded active:bg-amber-500 transition cursor-pointer hover:bg-amber-100">⌫</button>
 
                 <button onClick={() => {setDisplay(display + '7')}} className="bg-blue-500 p-2 active:bg-blue-900 rounded transition cursor-pointer hover:bg-blue-400">7</button>
                 <button onClick={() => {setDisplay(display + '8')}} className="bg-blue-500 p-2 active:bg-blue-900 rounded transition cursor-pointer hover:bg-blue-400">8</button>
                 <button onClick={() => {setDisplay(display + '9')}} className="bg-blue-500 p-2 active:bg-blue-900 rounded cursor-pointer transition hover:bg-blue-400">9</button>
 
-                <button onClick={() => {(setDisplay(display + '+'))}} className="bg-amber-600 p-2 rounded active:bg-amber-700 transition cursor-pointer hover:bg-amber-400">+</button>
+                <button onClick={() => {(handleOperatorClick("+"))}} className="bg-amber-600 p-2 rounded active:bg-amber-700 transition cursor-pointer hover:bg-amber-400">+</button>
 
 
                 <button onClick={() => {setDisplay(display + '0')}} className="bg-blue-500 p-2 rounded transition active:bg-blue-900 cursor-pointer hover:bg-blue-400">0</button>
 
+                {/* subtração */}
+                <button onClick={() => {(handleOperatorClick("-"))}} className="bg-amber-600 p-2 rounded active:bg-amber-700 transition cursor-pointer hover:bg-amber-400">-</button>
 
-                 <button onClick={() => {(setDisplay(display + '-'))}} className="bg-amber-600 p-2 rounded active:bg-amber-700 transition cursor-pointer hover:bg-amber-400">-</button>
+                {/* multiplicação */}
+         
+                <button onClick={() => {(handleOperatorClick("x"))}} className="bg-amber-600 p-2 rounded active:bg-amber-700 transition cursor-pointer hover:bg-amber-400">x</button>
 
-                 <button onClick={() => {(setDisplay(display + 'x'))}} className="bg-amber-600 p-2 rounded active:bg-amber-700 transition cursor-pointer hover:bg-amber-400">x</button>
+                {/* divisão */}
+                <button onClick={() => {(handleOperatorClick("÷"))}} className="bg-amber-600 p-2 rounded active:bg-amber-700 transition cursor-pointer hover:bg-amber-400">÷</button>
 
-                 <button onClick={() => {(setDisplay(display + '÷'))}} className="bg-amber-600 p-2 rounded active:bg-amber-700 transition cursor-pointer hover:bg-amber-400">÷</button>
-
-                 {/* igualdade = */}
+                {/* igualdade = */}
                 <button onClick={() => {Calculate()}} className="bg-indigo-400 p-2 rounded active:bg-indigo-700 transition cursor-pointer hover:bg-indigo-300 col-span-4">=</button>
             </div>
 

@@ -1,8 +1,6 @@
 import React from "react";
 import Navbar from "@/components/Navbar";
-import Welcome from "@/components/Welcome";
-import CardCreator from "@/components/CardCreator";
-import MiniDisplay from "@/components/Mini-Display";
+import Calculadora from "@/components/Calculadora";
 
 
 export default function Home() {
@@ -22,7 +20,7 @@ export default function Home() {
 
       <div className="place-content-center">
 
-        <MiniDisplay />
+        <Calculadora />
 
         {/* <h1 className="text-center text-4xl m-5">Principais Notícias</h1>
 
