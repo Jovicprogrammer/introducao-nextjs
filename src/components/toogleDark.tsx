@@ -14,7 +14,7 @@ export default function ToggleDark({onToggle, isDark}: props) {
         ${ isDark ? 'bg-black' : 'bg-red-700' }
 
         `}>
-
+            
             {isDark ? 'Toggle Dark' : 'Toggle Light'}
 
         </button>
