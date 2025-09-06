@@ -24,13 +24,13 @@ export default function ListaDeCompras() {
         { 
             index: 3,
             item: 'Lâmpada',
-            comprado: true
+            comprado: false
         },
 
         { 
             index: 4,
             item: 'Mingau',
-            comprado: true
+            comprado: false
         },
 
         { 
@@ -53,52 +53,38 @@ export default function ListaDeCompras() {
         const listaAtualizada = ListaCompras.map((item, i) => {
             if(i == index) {
                 item.comprado = !item.comprado
-                return item
                 
                 
-            }
+                
+            } return item
         })
+        setListaCompras(listaAtualizada)
     } 
-
-    
-
-    const MyItem = function({index, item, adquirido}: CardProps){
-        return (
-            <div className="flex items-center justify-between space-y-2 max-w-[200px]">
-
-                <li key={index} className={`flex items-center
-        space-x-2 p-2 rounded-md
-        
-        bg-gray-50 hover:bg-gray-100
-        ${adquirido ?  
-            "line-through" : 
-            "no-underline"}
-        `}>
-            <span>{item}</span>
-            </li>
-        
-            <button className="bg-black text-white p-2 hover:bg-white hover:text-black hover:font-bold transition" onClick={() => handleCheck((index))} > 
-            <span>{adquirido ? 'Desmarcar' : 'Marcar' }</span>
-                </button>
-
-            </div>
-        )
-    }
-
-
 
 
     return (
 
-
-        <ul>
-            {items.map((item) => (
-                        <MyItem key={item.index} index={item.index} item={item.item} adquirido={item.comprado}></MyItem>
-                        
-                    ))}
-
-                    
-        </ul>
+<div className="m-4 justify-items-center">
+        
+        <h2 className="font-bold pb-2">Lista de Compras</h2>
+    
+            <ul className="">
+    
+                {ListaCompras.map((item, index) => (
+                            <li className="flex gap-2" key={index}>
+                                <input onClick={() => handleCheck(index)} type="checkbox" />
+    
+                                <h2 className={item.comprado ?
+                                "mx-2 line-through" : "mx-2"}>{item.item}
+                                </h2>
+    
+                            </li>
+    
+                        ))}
+    
+    
+            </ul>
+</div>
 
 
     )
